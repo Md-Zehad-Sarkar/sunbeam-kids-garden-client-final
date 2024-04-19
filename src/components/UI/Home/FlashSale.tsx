@@ -1,8 +1,13 @@
 "use client";
-import FlashSaleCard from "./FlashSaleCard";
+// import FlashSaleCard from "./FlashSaleCard";
 import Link from "next/link";
 import { TProduct } from "@/types/products.type";
 import { useGetAllProductsQuery } from "@/redux/api/products/productsApi";
+import dynamic from "next/dynamic";
+
+const FlashSaleCard = dynamic(() => import("./FlashSaleCard"), {
+  ssr: false,
+});
 
 const FlashSale = () => {
   // const res = await fetch("http://localhost:5000/api/v1/products", {

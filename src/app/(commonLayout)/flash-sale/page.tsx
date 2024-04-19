@@ -1,14 +1,24 @@
+"use client";
 import AllFlashSale from "@/components/UI/AllFlashSale/AllFlashSale";
+import { useGetAllProductsQuery } from "@/redux/api/products/productsApi";
 import { TProduct } from "@/types/products.type";
 
-const FlashSalePage = async () => {
-  const res = await fetch("http://localhost:5000/api/v1/products", {
-    next: { revalidate: 30 },
-  });
+const FlashSalePage = () => {
+  // const res = await fetch("http://localhost:5000/api/v1/products", {
+  //   next: { revalidate: 30 },
+  // });
 
-  const { data: products } = await res.json();
+  // const { data: products } = await res.json();
 
-  const flashSales = products.filter(
+  const { data: products, isLoading } = useGetAllProductsQuery({});
+
+  if (isLoading) {
+    return "Loading...";
+  }
+
+  console.log(products);
+
+  const flashSales = products?.data?.filter(
     (product: TProduct) => product.flashSale === true
   );
 

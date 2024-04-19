@@ -4,6 +4,7 @@ import Image from "next/image";
 import profile from "@/assets/images/coti.jpeg";
 
 const Navbar = () => {
+  const user = false;
   const navmenu = (
     <>
       <li>
@@ -27,6 +28,12 @@ const Navbar = () => {
       </li>
       <li>
         <Link href="/contact">Contact-Us</Link>
+      </li>
+
+      <button>Logout</button>
+
+      <li>
+        <Link href="/login">Login</Link>
       </li>
     </>
   );

@@ -1,6 +1,12 @@
 import React from "react";
-import FlashSaleCard from "../Home/FlashSaleCard";
+// import FlashSaleCard from "../Home/FlashSaleCard";
 import { TProduct } from "@/types/products.type";
+
+import dynamic from "next/dynamic";
+
+const FlashSaleCard = dynamic(() => import("../Home/FlashSaleCard"), {
+  ssr: false,
+});
 
 const AllFlashSale = ({ flashSales }: { flashSales: TProduct[] }) => {
   return (
