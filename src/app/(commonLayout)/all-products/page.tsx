@@ -1,13 +1,19 @@
-import AllProducts from "@/components/UI/AllProducts/AllProducts";
+"use client";
 import ProductsCard from "@/components/UI/AllProducts/ProductsCard";
+import { useGetAllProductsQuery } from "@/redux/api/products/productsApi";
 import { TProduct } from "@/types/products.type";
 
-const AllProductsPage = async () => {
-  const res = await fetch("http://localhost:5000/api/v1/products", {
-    next: { revalidate: 30 },
-  });
+const AllProductsPage = () => {
+  // const res = await fetch("http://localhost:5000/api/v1/products", {
+  //   next: { revalidate: 30 },
+  // });
 
-  const { data: products } = await res.json();
+  // const { data: products } = await res.json();
+
+  const { data: products, isLoading } = useGetAllProductsQuery({});
+  if (isLoading) {
+    return "Loading...";
+  }
 
   return (
     <div className="mt-24 mb-10">
