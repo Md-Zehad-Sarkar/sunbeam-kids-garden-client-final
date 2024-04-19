@@ -2,6 +2,7 @@
 import KidsForm from "@/forms/KidsForm";
 import KidsInput from "@/forms/KidsInput";
 import { userLogin } from "@/services/action/userLogin";
+import { authService } from "@/services/authService";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React from "react";
@@ -14,9 +15,12 @@ const LoginPage = () => {
     try {
       const res = await userLogin(data);
       console.log(res);
-      if (res.success) {
-        toast.success("User Login Successful");
+      if (res.token) {
+        const token = res.token;
+        //token set on local storage
+        authService(token);
         router.push("/");
+        toast.success("User Login Successful");
       }
     } catch (error) {
       console.error(error);

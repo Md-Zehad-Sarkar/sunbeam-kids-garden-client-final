@@ -11,6 +11,7 @@ export const registerUser = async (data: FieldValues) => {
     body: JSON.stringify(data),
     cache: "no-store",
   });
+  
   // Check if response is ok
   if (!res.ok) {
     throw new Error(`HTTP error ! status: ${res.status}`);

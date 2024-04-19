@@ -1,14 +1,20 @@
 //set to local storage
 export const setToLocalStorage = (token: string) => {
-  localStorage.setItem("accessToken", token);
+  if (typeof window === "undefined") {
+    return "";
+  }
+  return localStorage.setItem("token", token);
 };
 
 //get from local storage
 export const getFromLocalStorage = () => {
-  localStorage.getItem("accessToken");
+  if (typeof window === "undefined") {
+    return "";
+  }
+  return localStorage.getItem("token");
 };
 
 //remove from local storage
 export const removeFromLocalStorage = () => {
-  localStorage.getItem("accessToken");
+  return localStorage.getItem("token");
 };

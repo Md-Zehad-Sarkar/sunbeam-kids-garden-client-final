@@ -1,10 +1,13 @@
+"use client";
 import Link from "next/link";
 import logo from "../../../../public/logo.jpeg";
 import Image from "next/image";
 import profile from "@/assets/images/coti.jpeg";
+import { authInfo } from "@/services/authService";
 
 const Navbar = () => {
-  const user = false;
+  const user = authInfo();
+
   const navmenu = (
     <>
       <li>
