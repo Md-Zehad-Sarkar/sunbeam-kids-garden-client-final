@@ -6,7 +6,6 @@ import Image from "next/image";
 
 const TrendingProductCard = ({ product }: { product: TProduct }) => {
   const handleAddToCart = (product: TProduct) => {
-    console.log("add to cart");
     let products = JSON.parse(localStorage.getItem("products") as string) || [];
 
     let productExists = products.find(

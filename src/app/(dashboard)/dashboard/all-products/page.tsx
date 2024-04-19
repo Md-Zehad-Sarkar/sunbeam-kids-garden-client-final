@@ -2,9 +2,7 @@ import ProductTableRow from "@/components/UI/Dashboard/allProducts/ProductTableR
 import { TProduct } from "@/types/products.type";
 
 const DashboardAllProductsPage = async () => {
-  const res = await fetch(
-    "https://sunbeam-kids-garden-server.vercel.app/api/v1/products"
-  );
+  const res = await fetch("http://localhost:5000/api/v1/products");
 
   const { data: products } = await res.json();
 

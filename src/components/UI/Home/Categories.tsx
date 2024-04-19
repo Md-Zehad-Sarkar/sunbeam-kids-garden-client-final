@@ -24,11 +24,11 @@ const Categories = async () => {
         </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 justify-center items-center max-w-7xl mx-auto mt-10 mb-10 p-2">
-        <Link href={`/${categories[0].category}`}>
+        <Link href={`/${categories[0]?.category}`}>
           <div className="card card-compact w-full max-w-[800px] bg-base-100 shadow-xl">
             <figure>
               <Image
-                src={categories[0].categoryImage}
+                src={categories[0]?.categoryImage}
                 alt="categoryImage"
                 width={600}
                 height={600}
@@ -36,17 +36,17 @@ const Categories = async () => {
               />
             </figure>
             <div className="card-body">
-              <h2 className="card-title">{categories[0].category}</h2>
+              <h2 className="card-title">{categories[0]?.category}</h2>
             </div>
           </div>
         </Link>
         <div className="">
           <div className="flex flex-col gap-4">
-            <Link href={`/${categories[1].category}`}>
+            <Link href={`/${categories[1]?.category}`}>
               <div className="card card-compact w-full max-w-[800px] bg-base-100 shadow-xl">
                 <figure>
                   <Image
-                    src={categories[1].categoryImage}
+                    src={categories[1]?.categoryImage}
                     alt="categoryImage"
                     width={600}
                     height={600}
@@ -54,15 +54,15 @@ const Categories = async () => {
                   />
                 </figure>
                 <div className="card-body">
-                  <h2 className="card-title">{categories[1].category}</h2>
+                  <h2 className="card-title">{categories[1]?.category}</h2>
                 </div>
               </div>
             </Link>
-            <Link href={`/${categories[2].category}`}>
+            <Link href={`/${categories[2]?.category}`}>
               <div className="card card-compact w-full max-w-[800px] bg-base-100 shadow-xl">
                 <figure>
                   <Image
-                    src={categories[2].categoryImage}
+                    src={categories[2]?.categoryImage}
                     alt="categoryImage"
                     width={600}
                     height={600}
@@ -70,17 +70,17 @@ const Categories = async () => {
                   />
                 </figure>
                 <div className="card-body">
-                  <h2 className="card-title">{categories[2].category}</h2>
+                  <h2 className="card-title">{categories[2]?.category}</h2>
                 </div>
               </div>
             </Link>
           </div>
         </div>
-        <Link href={`/${categories[3].category}`}>
+        <Link href={`/${categories[3]?.category}`}>
           <div className="card card-compact w-full max-w-[800px] bg-base-100 shadow-xl">
             <figure>
               <Image
-                src={categories[3].categoryImage}
+                src={categories[3]?.categoryImage}
                 alt="categoryImage"
                 width={600}
                 height={600}
@@ -88,17 +88,16 @@ const Categories = async () => {
               />
             </figure>
             <div className="card-body">
-              <h2 className="card-title">{categories[3].category}</h2>
+              <h2 className="card-title">{categories[3]?.category}</h2>
             </div>
           </div>
         </Link>
         <div className="flex flex-col gap-5">
-          {" "}
-          <Link href={`/${categories[4].category}`}>
+          <Link href={`/${categories[4]?.category}`}>
             <div className="card card-compact w-full max-w-[800px] bg-base-100 shadow-xl">
               <figure>
                 <Image
-                  src={categories[4].categoryImage}
+                  src={categories[4]?.categoryImage}
                   alt="categoryImage"
                   width={600}
                   height={600}
@@ -106,15 +105,15 @@ const Categories = async () => {
                 />
               </figure>
               <div className="card-body">
-                <h2 className="card-title">{categories[4].category}</h2>
+                <h2 className="card-title">{categories[4]?.category}</h2>
               </div>
             </div>
           </Link>
-          <Link href={`/${categories[5].category}`}>
+          <Link href={`/${categories[5]?.category}`}>
             <div className="card card-compact w-full max-w-[800px] bg-base-100 shadow-xl">
               <figure>
                 <Image
-                  src={categories[5].categoryImage}
+                  src={categories[5]?.categoryImage}
                   alt="categoryImage"
                   width={600}
                   height={600}
@@ -122,7 +121,7 @@ const Categories = async () => {
                 />
               </figure>
               <div className="card-body">
-                <h2 className="card-title">{categories[5].category}</h2>
+                <h2 className="card-title">{categories[5]?.category}</h2>
               </div>
             </div>
           </Link>

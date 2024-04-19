@@ -1,8 +1,19 @@
-import Categories from "@/components/UI/Home/Categories";
-import FlashSale from "@/components/UI/Home/FlashSale";
-import HeroSection from "@/components/UI/Home/HeroSection";
-import Sponsors from "@/components/UI/Home/Sponsors";
-import Trending from "@/components/UI/Home/Trending";
+import dynamic from "next/dynamic";
+const Categories = dynamic(() => import("@/components/UI/Home/Categories"), {
+  ssr: false,
+});
+const FlashSale = dynamic(() => import("@/components/UI/Home/FlashSale"), {
+  ssr: false,
+});
+const HeroSection = dynamic(() => import("@/components/UI/Home/HeroSection"), {
+  ssr: false,
+});
+const Sponsors = dynamic(() => import("@/components/UI/Home/Sponsors"), {
+  ssr: false,
+});
+const Trending = dynamic(() => import("@/components/UI/Home/Trending"), {
+  ssr: false,
+});
 
 const HomePage = () => {
   return (
