@@ -1,13 +1,26 @@
 "use client";
 import KidsForm from "@/forms/KidsForm";
 import KidsInput from "@/forms/KidsInput";
+import { registerUser } from "@/services/action/registerUser";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { FieldValues } from "react-hook-form";
+import { toast } from "sonner";
 
 const RegisterPage = () => {
-  const onSubmit = (data: FieldValues) => {
-    console.log(data);
+  const router = useRouter();
+  const onSubmit = async (data: FieldValues) => {
+    try {
+      const res = await registerUser(data);
+
+      if (res?.success) {
+        toast.success("User Register Successful");
+        router.push("/");
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
   return (
     <KidsForm onSubmit={onSubmit}>
