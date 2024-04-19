@@ -2,12 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Categories = async () => {
-  const res = await fetch(
-    "https://sunbeam-kids-garden-server.vercel.app/api/v1/categories",
-    {
-      next: { revalidate: 30 },
-    }
-  );
+  const res = await fetch("http://localhost:5000/api/v1/categories", {
+    next: { revalidate: 30 },
+  });
 
   const { data: categories } = await res.json();
 

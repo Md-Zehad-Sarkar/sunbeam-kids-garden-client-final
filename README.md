@@ -3,8 +3,8 @@
 ## project name : Sunbeam kids garden
 
 - live link : https://sunbeam-kids-garden-client.vercel.app/
-- server git link : https://github.com/Md-Zehad-Sarkar/sunbeam-kids-garden-server.git
-- client git link : https://github.com/Md-Zehad-Sarkar/sunbeam-kids-garden-client.git
+- server git link : https://github.com/Md-Zehad-Sarkar/sunbeam-kids-garden-server-with-authentication.git
+- client git link : https://github.com/Md-Zehad-Sarkar/sunbeam-kids-garden-client-final.git
 
 ## Technoligies
 
