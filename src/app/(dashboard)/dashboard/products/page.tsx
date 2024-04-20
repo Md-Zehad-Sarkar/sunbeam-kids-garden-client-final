@@ -1,13 +1,19 @@
 "use client";
-import ProductTableRow from "@/components/UI/Dashboard/allProducts/ProductTableRow";
+// import ProductTableRow from "@/components/UI/Dashboard/allProducts/ProductTableRow";
 import { useGetAllProductsQuery } from "@/redux/api/products/productsApi";
 import { TProduct } from "@/types/products.type";
+import dynamic from "next/dynamic";
+const ProductTableRow = dynamic(
+  () => import("@/components/UI/Dashboard/allProducts/ProductTableRow"),
+  {
+    ssr: false,
+  }
+);
 
-const DashboardAllProductsPage = () => {
-  // const res = await fetch("http://localhost:5000/api/v1/products");
-
-  // const { data: products } = await res.json();
-
+const AdminProductsPage = () => {
+  {
+    /* <h2>All admin products load here</h2> */
+  }
   const { data: products, isLoading } = useGetAllProductsQuery({});
 
   if (isLoading) {
@@ -39,4 +45,4 @@ const DashboardAllProductsPage = () => {
   );
 };
 
-export default DashboardAllProductsPage;
+export default AdminProductsPage;

@@ -30,6 +30,7 @@ const KidsInput = ({
             placeholder={placeholder}
             style={{
               border: "1px solid",
+              padding:'5px',
               marginTop: "3px",
               marginBottom: "10px",
             }}

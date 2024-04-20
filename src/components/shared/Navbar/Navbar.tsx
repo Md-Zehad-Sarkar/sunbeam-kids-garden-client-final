@@ -39,7 +39,7 @@ const Navbar = () => {
       {user?.email ? (
         <>
           <li>
-            <Link href="/dashboard" className="">
+            <Link href="/dashboard/products" className="">
               Dashboard
             </Link>
           </li>

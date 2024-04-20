@@ -2,7 +2,6 @@
 import { FieldValues } from "react-hook-form";
 
 export const userLogin = async (data: FieldValues) => {
-  console.log("login dta", data);
   const res = await fetch(`${process.env.SERVER_API_URL}/login`, {
     method: "POST",
     headers: {
