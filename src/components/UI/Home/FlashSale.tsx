@@ -25,9 +25,9 @@ const FlashSale = () => {
   const flashSales = products?.data?.filter(
     (product: TProduct) => product.flashSale === true
   );
-  const initialData = flashSales.slice(0, 4);
-  const viewAllData = flashSales.length > 4 ? initialData : flashSales;
-  const sortedViewAllData = viewAllData.sort((a: TProduct, b: TProduct) => {
+  const initialData = flashSales?.slice(0, 4);
+  const viewAllData = flashSales?.length > 4 ? initialData : flashSales;
+  const sortedViewAllData = viewAllData?.sort((a: TProduct, b: TProduct) => {
     const dateA = new Date(a.createdAt);
     const dateB = new Date(b.createdAt);
     return dateA.getTime() - dateB.getTime();

@@ -5,6 +5,7 @@ import Image from "next/image";
 import profile from "@/assets/images/coti.jpeg";
 import { authInfo, removeUser } from "@/services/authService";
 import { useRouter } from "next/navigation";
+import ShoppingCartIcon from "@/assets/images/cart.png";
 
 const Navbar = () => {
   const router = useRouter();
@@ -12,7 +13,6 @@ const Navbar = () => {
 
   const handleLogout = () => {
     removeUser();
-    // router.refresh()
     router.push("/login");
   };
 
@@ -28,11 +28,6 @@ const Navbar = () => {
       <li>
         <Link href="/flash-sale">Flash-Sale</Link>
       </li>
-      {/* <li>
-        <Link href="/dashboard" className="">
-          Dashboard
-        </Link>
-      </li> */}
 
       <li>
         <Link href="/about">About-Us</Link>
@@ -48,13 +43,25 @@ const Navbar = () => {
               Dashboard
             </Link>
           </li>
-          <button onClick={handleLogout}>Logout</button>
+          <li>
+            <button onClick={handleLogout}>Logout</button>
+          </li>
         </>
       ) : (
         <li>
           <Link href="/login">Login</Link>
         </li>
       )}
+      <li>
+        <Link href="/cart" className="">
+          <Image
+            src={ShoppingCartIcon}
+            alt="cart icon"
+            width={20}
+            height={20}
+          />
+        </Link>
+      </li>
     </>
   );
   return (

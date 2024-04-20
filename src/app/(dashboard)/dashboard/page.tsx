@@ -1,8 +1,14 @@
 "use client";
-import ProductTableRow from "@/components/UI/Dashboard/allProducts/ProductTableRow";
+// import ProductTableRow from "@/components/UI/Dashboard/allProducts/ProductTableRow";
 import { useGetAllProductsQuery } from "@/redux/api/products/productsApi";
 import { TProduct } from "@/types/products.type";
-import React from "react";
+import dynamic from "next/dynamic";
+const ProductTableRow = dynamic(
+  () => import("@/components/UI/Dashboard/allProducts/ProductTableRow"),
+  {
+    ssr: false,
+  }
+);
 
 const DashboardPage = () => {
   // const res = await fetch("http://localhost:5000/api/v1/products");
@@ -14,8 +20,6 @@ const DashboardPage = () => {
   if (isLoading) {
     return "Loading...";
   }
-
-  console.log(products);
 
   return (
     <div className="mt-12 mb-10">

@@ -22,7 +22,7 @@ export const removeUser = () => {
 
 //get user info
 export const authInfo = () => {
-  const userToken:any = getFromLocalStorage();
+  const userToken: any = getFromLocalStorage();
   if (userToken) {
     const userInfo: any = decodeJwtToken(userToken);
     return { ...userInfo };
