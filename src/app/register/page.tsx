@@ -2,6 +2,8 @@
 import KidsForm from "@/forms/KidsForm";
 import KidsInput from "@/forms/KidsInput";
 import { registerUser } from "@/services/action/registerUser";
+import { userLogin } from "@/services/action/userLogin";
+import { authService } from "@/services/authService";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React from "react";
@@ -16,6 +18,15 @@ const RegisterPage = () => {
 
       if (res?.success) {
         toast.success("User Register Successful");
+      }
+
+      const result = await userLogin({
+        email: data.email,
+        password: data.password,
+      });
+
+      if (result?.token) {
+        authService(result.token);
         router.push("/");
       }
     } catch (error) {

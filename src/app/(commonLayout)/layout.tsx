@@ -1,7 +1,12 @@
 import Footer from "@/components/shared/Footer/Footer";
-import Navbar from "@/components/shared/Navbar/Navbar";
+// import Navbar from "@/components/shared/Navbar/Navbar";
 import { Metadata } from "next";
 import { ReactNode } from "react";
+import dynamic from "next/dynamic";
+
+const Navbar = dynamic(() => import("@/components/shared/Navbar/Navbar"), {
+  ssr: false,
+});
 
 export const metadata: Metadata = {
   title: "Sunbeam Kids Garden",

@@ -3,10 +3,18 @@ import Link from "next/link";
 import logo from "../../../../public/logo.jpeg";
 import Image from "next/image";
 import profile from "@/assets/images/coti.jpeg";
-import { authInfo } from "@/services/authService";
+import { authInfo, removeUser } from "@/services/authService";
+import { useRouter } from "next/navigation";
 
 const Navbar = () => {
+  const router = useRouter();
   const user = authInfo();
+
+  const handleLogout = () => {
+    removeUser();
+    // router.refresh()
+    router.push("/login");
+  };
 
   const navmenu = (
     <>
@@ -20,11 +28,11 @@ const Navbar = () => {
       <li>
         <Link href="/flash-sale">Flash-Sale</Link>
       </li>
-      <li>
+      {/* <li>
         <Link href="/dashboard" className="">
           Dashboard
         </Link>
-      </li>
+      </li> */}
 
       <li>
         <Link href="/about">About-Us</Link>
@@ -33,11 +41,20 @@ const Navbar = () => {
         <Link href="/contact">Contact-Us</Link>
       </li>
 
-      <button>Logout</button>
-
-      <li>
-        <Link href="/login">Login</Link>
-      </li>
+      {user?.email ? (
+        <>
+          <li>
+            <Link href="/dashboard" className="">
+              Dashboard
+            </Link>
+          </li>
+          <button onClick={handleLogout}>Logout</button>
+        </>
+      ) : (
+        <li>
+          <Link href="/login">Login</Link>
+        </li>
+      )}
     </>
   );
   return (

@@ -16,5 +16,5 @@ export const getFromLocalStorage = () => {
 
 //remove from local storage
 export const removeFromLocalStorage = () => {
-  return localStorage.getItem("token");
+  return localStorage.removeItem("token");
 };

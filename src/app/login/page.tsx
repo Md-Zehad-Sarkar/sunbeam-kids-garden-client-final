@@ -14,9 +14,10 @@ const LoginPage = () => {
   const onSubmit = async (data: FieldValues) => {
     try {
       const res = await userLogin(data);
-      console.log(res);
-      if (res.token) {
+
+      if (res?.token) {
         const token = res.token;
+        
         //token set on local storage
         authService(token);
         router.push("/");
