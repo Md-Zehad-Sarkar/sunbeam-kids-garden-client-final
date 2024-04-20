@@ -13,7 +13,7 @@ const ProductTableRow = ({ product, i }: { product: TProduct; i: string }) => {
 
   //edit product
   const handleEdit = async (product: TProduct) => {
-    console.log(product._id);
+    // console.log(product._id);
     const res = await updateProducts({ id: product?._id, data: product });
   };
 

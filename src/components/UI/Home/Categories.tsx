@@ -1,12 +1,20 @@
+"use client";
+import { useGetAllCategoriesQuery } from "@/redux/api/categories/categoriesApi";
 import Image from "next/image";
 import Link from "next/link";
 
-const Categories = async () => {
-  const res = await fetch("http://localhost:5000/api/v1/categories", {
-    next: { revalidate: 30 },
-  });
+const Categories = () => {
+  // const res = await fetch("http://localhost:5000/api/v1/categories", {
+  //   next: { revalidate: 30 },
+  // });
 
-  const { data: categories } = await res.json();
+  // const { data: categories } = await res.json();
+
+  const { data: categories, isLoading } = useGetAllCategoriesQuery({});
+
+  if (isLoading) {
+    return "Loading...";
+  }
 
   return (
     <div className="mt-24 mb-10 max-w-[1000px] mx-auto text-center p-2">
