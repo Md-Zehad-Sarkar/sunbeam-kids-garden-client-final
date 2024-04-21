@@ -6,6 +6,7 @@ type TInputProps = {
   type: string;
   placeholder?: string;
   required?: boolean;
+  className?: string;
 };
 
 const KidsInput = ({
@@ -14,6 +15,7 @@ const KidsInput = ({
   type = "text",
   placeholder,
   required,
+  className,
 }: TInputProps) => {
   const { control } = useFormContext();
   return (
@@ -30,11 +32,9 @@ const KidsInput = ({
             placeholder={placeholder}
             style={{
               border: "1px solid",
-              padding:'5px',
-              marginTop: "3px",
-              marginBottom: "10px",
+              padding:'5px'
             }}
-            className="ring-2 border focus:border-black  m-auto max-w-[300px] w-full p-3 rounded-md"
+            className={className}
           />
           {error && <span>{error?.message}</span>}
         </>

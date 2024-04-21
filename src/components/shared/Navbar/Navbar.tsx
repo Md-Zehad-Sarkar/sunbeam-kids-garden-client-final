@@ -7,11 +7,26 @@ import { authInfo, removeUser } from "@/services/authService";
 import { useRouter } from "next/navigation";
 import ShoppingCartIcon from "@/assets/images/cart.png";
 import { useAppSelector } from "@/redux/hooks";
+import { useGetCartFromDBQuery } from "@/redux/api/carts/cartsApi";
 
 const Navbar = () => {
   const router = useRouter();
-  const user = authInfo();
   const { products } = useAppSelector((state) => state.products);
+  const { data: cartProducts, isLoading } = useGetCartFromDBQuery({});
+
+  const user = authInfo();
+
+  if (isLoading) {
+    return "Loading...";
+  }
+
+  //bd product cart
+  const userCart = cartProducts?.data?.filter(
+    (carts) => carts.email === user?.email
+  );
+
+  //persisted product cart
+  const productCart = products?.filter((carts) => carts.email === user?.email);
 
   const handleLogout = () => {
     removeUser();
@@ -55,7 +70,7 @@ const Navbar = () => {
         </li>
       )}
       <li className="relative">
-        <Link href="/cart" className="">
+        <Link href="/checkout" className="">
           <Image
             src={ShoppingCartIcon}
             alt="cart icon"
@@ -64,7 +79,7 @@ const Navbar = () => {
           />
 
           <div className="badge absolute top-[-10px] right-0">
-            {products?.length}
+            {productCart?.length || userCart?.length}
           </div>
         </Link>
       </li>

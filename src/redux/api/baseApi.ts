@@ -6,5 +6,5 @@ export const baseApi = createApi({
   baseQuery: axiosBaseQuery({ baseUrl: "http://localhost:5000/api/v1" }),
   // baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:5000/api/v1" }),
   endpoints: () => ({}),
-  tagTypes: ["products"],
+  tagTypes: ["products", "categories", "carts",'users','reviews'],
 });

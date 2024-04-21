@@ -14,12 +14,14 @@ const Sidebar = dynamic(() => import("@/components/shared/Sidebar/Sidebar"), {
 const DashBoardLayout = ({ children }: { children: ReactNode }) => {
   const user = authInfo();
 
-  // if (!isLoggedIn()) {
-  //   if (typeof window !== "undefined") {
-  //     router.push("/login");
-  //   }
-  //   return null;
-  // }
+  const router = useRouter();
+
+  if (!isLoggedIn()) {
+    if (typeof window !== "undefined") {
+      return router.push("/login");
+    }
+    return null;
+  }
 
   // if (user.userToken) {
   //   router.push("/login");

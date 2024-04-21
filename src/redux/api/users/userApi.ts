@@ -15,7 +15,7 @@ export const userApi = baseApi.injectEndpoints({
 
     createAdmin: builder.mutation({
       query: (data) => ({
-        url: "/register",
+        url: "/admin-register",
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -23,6 +23,21 @@ export const userApi = baseApi.injectEndpoints({
         data,
       }),
     }),
+
+    getAllUserFromDB: builder.query({
+      query: () => ({
+        url: "/users",
+        method: "GET",
+      }),
+      transformResponse: (response: any) => {
+        return { data: response };
+      },
+      providesTags: ["users"],
+    }),
   }),
 });
-export const { useCreateUserMutation, useCreateAdminMutation } = userApi;
+export const {
+  useCreateUserMutation,
+  useCreateAdminMutation,
+  useGetAllUserFromDBQuery,
+} = userApi;

@@ -5,13 +5,15 @@ import {
   SubmitHandler,
   FieldValues,
 } from "react-hook-form";
+
 type TFormProps = {
   children: ReactNode;
   onSubmit: SubmitHandler<FieldValues>;
+  className?: string;
 };
 
 // sunbeam kids garden reusable form
-const KidsForm = ({ children, onSubmit: submit }: TFormProps) => {
+const KidsForm = ({ children, onSubmit: submit, className }: TFormProps) => {
   const methods = useForm();
   const { handleSubmit, reset } = methods;
 
@@ -23,14 +25,7 @@ const KidsForm = ({ children, onSubmit: submit }: TFormProps) => {
 
   return (
     <FormProvider {...methods}>
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        style={{
-          width: "500px",
-          margin: "0 auto",
-          marginTop: "20px",
-        }}
-      >
+      <form onSubmit={handleSubmit(onSubmit)} className={className}>
         {children}
       </form>
     </FormProvider>
