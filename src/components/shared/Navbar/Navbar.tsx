@@ -6,10 +6,12 @@ import profile from "@/assets/images/coti.jpeg";
 import { authInfo, removeUser } from "@/services/authService";
 import { useRouter } from "next/navigation";
 import ShoppingCartIcon from "@/assets/images/cart.png";
+import { useAppSelector } from "@/redux/hooks";
 
 const Navbar = () => {
   const router = useRouter();
   const user = authInfo();
+  const { products } = useAppSelector((state) => state.products);
 
   const handleLogout = () => {
     removeUser();
@@ -52,7 +54,7 @@ const Navbar = () => {
           <Link href="/login">Login</Link>
         </li>
       )}
-      <li>
+      <li className="relative">
         <Link href="/cart" className="">
           <Image
             src={ShoppingCartIcon}
@@ -60,6 +62,10 @@ const Navbar = () => {
             width={20}
             height={20}
           />
+
+          <div className="badge absolute top-[-10px] right-0">
+            {products?.length}
+          </div>
         </Link>
       </li>
     </>

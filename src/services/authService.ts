@@ -25,6 +25,6 @@ export const authInfo = () => {
   const userToken: any = getFromLocalStorage();
   if (userToken) {
     const userInfo: any = decodeJwtToken(userToken);
-    return { ...userInfo };
+    return { ...userInfo, userToken };
   }
 };

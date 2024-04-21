@@ -5,21 +5,24 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { ReactNode } from "react";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 
 const Sidebar = dynamic(() => import("@/components/shared/Sidebar/Sidebar"), {
   ssr: false,
 });
 
 const DashBoardLayout = ({ children }: { children: ReactNode }) => {
-  // const user = authInfo();
-  // console.log(user);
-  const router = useRouter();
+  const user = authInfo();
 
   // if (!isLoggedIn()) {
   //   if (typeof window !== "undefined") {
   //     router.push("/login");
   //   }
   //   return null;
+  // }
+
+  // if (user.userToken) {
+  //   router.push("/login");
   // }
 
   return (
@@ -29,7 +32,8 @@ const DashBoardLayout = ({ children }: { children: ReactNode }) => {
           {/* <p className="flex justify-end items-center mr-2">{user?.name}</p> */}
           <div className="w-24 rounded-full">
             <Image
-              src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+              // src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
+              src={user?.image}
               alt="profile image"
               width={200}
               height={200}
