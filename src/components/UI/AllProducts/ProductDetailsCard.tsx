@@ -4,7 +4,7 @@ import ProductReviews from "@/components/shared/ProductReviews/ProductReviews";
 import Ratings from "@/components/shared/Ratings/Ratings";
 import { useAddToCartToDBMutation } from "@/redux/api/carts/cartsApi";
 import { addProductToCart } from "@/redux/features/productSlice";
-import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { useAppDispatch } from "@/redux/hooks";
 import { authInfo } from "@/services/authService";
 import { TProduct } from "@/types/products.type";
 import Image from "next/image";
@@ -33,6 +33,7 @@ const ProductDetailsCard = ({ product }: { product: TProduct }) => {
     if (res?.insertedId) {
       toast.success("Product Added to Cart successful");
       dispatch(addProductToCart(productObj));
+      router.push("/checkout");
     }
     router.refresh();
   };

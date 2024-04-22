@@ -2,9 +2,10 @@ import { Controller, useFormContext } from "react-hook-form";
 type TFileUploadProps = {
   name: string;
   label?: string;
+  className?: string;
 };
 
-const KidsFileInput = ({ name, label }: TFileUploadProps) => {
+const KidsFileInput = ({ name, label, className }: TFileUploadProps) => {
   const { control } = useFormContext();
   return (
     <Controller
@@ -19,7 +20,7 @@ const KidsFileInput = ({ name, label }: TFileUploadProps) => {
               type="file"
               onChange={(e) => onChange(e.target.files?.[0])}
               value={value?.fileName}
-              className="mt-[10px] mb-3 border max-w-[300px] w-full rounded-md"
+              className={className}
             />
           </>
         );

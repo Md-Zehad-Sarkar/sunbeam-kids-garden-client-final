@@ -25,7 +25,7 @@ const productSlice = createSlice({
       }
     },
 
-    clearProductCart: (state, action: PayloadAction<TProduct>) => {
+    clearProductCart: (state) => {
       state.products = [];
     },
   },

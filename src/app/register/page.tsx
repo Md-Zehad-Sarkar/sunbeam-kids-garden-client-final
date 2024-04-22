@@ -65,12 +65,41 @@ const RegisterPage = () => {
     }
   };
   return (
-    <KidsForm onSubmit={onSubmit}>
-      <KidsInput type="text" label="Name" name="name" /> <br />
-      <KidsInput type="email" label="Email" name="email" /> <br />
-      <KidsInput type="password" label="Password" name="password" /> <br />
-      <KidsFileInput label="Profile Picture" name="image" /> <br />
-      <p>
+    <KidsForm
+      onSubmit={onSubmit}
+      className="w-full max-w-[500px] mx-auto mt-12"
+    >
+      <KidsInput
+        type="text"
+        label="Name"
+        name="name"
+        placeholder="Type your name"
+        className="w-full max-w-[400px] rounded-md mt-2 mb-3"
+      />{" "}
+      <br />
+      <KidsInput
+        type="email"
+        label="Email"
+        name="email"
+        placeholder="Type email"
+        className="w-full max-w-[400px] rounded-md mt-2 mb-3"
+      />{" "}
+      <br />
+      <KidsInput
+        type="password"
+        label="Password"
+        name="password"
+        placeholder="Type password"
+        className="w-full max-w-[400px] rounded-md mt-2 mb-3"
+      />{" "}
+      <br />
+      <KidsFileInput
+        label="Profile Picture"
+        name="image"
+        className=" mb-3 border max-w-[400px] w-full rounded-md mt-2"
+      />{" "}
+      <br />
+      <p className="mt-2">
         Already have an account?{" "}
         <Link href="/login" className="text-red-400">
           Login

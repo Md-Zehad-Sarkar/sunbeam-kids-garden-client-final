@@ -45,14 +45,16 @@ const ProductReviews = ({ productId }: { productId?: string }) => {
   };
   return (
     <div>
-      <h2 className="text-3xl">Customers Review</h2>
+      <h2 className="text-3xl mb-12">Customers Review</h2>
       {user?.email && (
-        <KidsForm onSubmit={onSubmit}>
+        <KidsForm onSubmit={onSubmit} className="w-full max-w-[600px]">
           <KidsTextArea
             name="reviews"
             label="Write Reviews"
             placeholder="Write your review about this products"
-          />
+            className="border max-w-[500px] w-full mt-2 p-2"
+          />{" "}
+          <br />
           <button type="submit" className="btn-ghost btn">
             Review
           </button>

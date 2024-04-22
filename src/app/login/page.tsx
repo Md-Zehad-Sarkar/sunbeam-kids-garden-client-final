@@ -29,10 +29,27 @@ const LoginPage = () => {
   };
 
   return (
-    <KidsForm onSubmit={onSubmit}>
-      <KidsInput type="email" label="Email" name="email" /> <br />
-      <KidsInput type="password" label="Password" name="password" /> <br />
-      <p>
+    <KidsForm
+      onSubmit={onSubmit}
+      className="w-full max-w-[500px] mx-auto mt-12"
+    >
+      <KidsInput
+        type="email"
+        label="Email"
+        name="email"
+        placeholder="Your email address"
+        className="w-full max-w-[400px] rounded-md mt-2 mb-3"
+      />{" "}
+      <br />
+      <KidsInput
+        type="password"
+        label="Password"
+        name="password"
+        placeholder="Your password address"
+        className="w-full max-w-[400px] rounded-md mt-2"
+      />{" "}
+      <br />
+      <p className="mt-2">
         Don&rsquo;t have an account?{" "}
         <Link href="/register" className="text-red-400">
           Register

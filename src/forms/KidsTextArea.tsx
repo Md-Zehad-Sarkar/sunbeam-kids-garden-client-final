@@ -4,9 +4,15 @@ type TTextareaProps = {
   name: string;
   label?: string;
   placeholder?: string;
+  className?: string;
 };
 
-const KidsTextArea = ({ name, label, placeholder }: TTextareaProps) => {
+const KidsTextArea = ({
+  name,
+  label,
+  placeholder,
+  className,
+}: TTextareaProps) => {
   const { control } = useFormContext();
   return (
     <Controller
@@ -21,7 +27,7 @@ const KidsTextArea = ({ name, label, placeholder }: TTextareaProps) => {
               cols={20}
               rows={5}
               placeholder={placeholder}
-              className="border max-w-[500px] w-full mt-2 p-2"
+              className={className}
             />
           </>
         );

@@ -41,6 +41,16 @@ const cartsApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ["carts"],
     }),
+
+    deleteAllCartFromDB: builder.mutation({
+      query: (email) => {
+        return {
+          url: `/delete-carts/${email}`,
+          method: "DELETE",
+        };
+      },
+      invalidatesTags: ["carts"],
+    }),
   }),
 });
 
@@ -49,4 +59,5 @@ export const {
   useGetCartFromDBQuery,
   useGetSingleCartFromDBQuery,
   useDeleteCartFromDBMutation,
+  useDeleteAllCartFromDBMutation,
 } = cartsApi;

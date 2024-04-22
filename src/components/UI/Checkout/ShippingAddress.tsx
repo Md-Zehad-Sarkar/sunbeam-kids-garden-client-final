@@ -2,11 +2,17 @@
 
 import KidsForm from "@/forms/KidsForm";
 import KidsInput from "@/forms/KidsInput";
+
 import { FieldValues } from "react-hook-form";
 
-const ShippingAddress = () => {
+export type TShippingAddressProps = {
+  shipAddress?: Record<string, any>;
+  setShipAddress: React.Dispatch<React.SetStateAction<Record<string, any>>>;
+};
+
+const ShippingAddress = ({ setShipAddress }: TShippingAddressProps) => {
   const onSubmit = async (data: FieldValues) => {
-    console.log(data);
+    setShipAddress(data);
   };
 
   return (
@@ -20,6 +26,7 @@ const ShippingAddress = () => {
               label="First Name"
               name="firstName"
               placeholder="Your first name"
+              required={true}
               className="w-full rounded-md  mt-2"
             />
           </div>
@@ -28,6 +35,7 @@ const ShippingAddress = () => {
               type="text"
               label="Last Name"
               name="lastName"
+              required={true}
               placeholder="Your last name"
               className="w-full rounded-md  mt-2"
             />
@@ -40,6 +48,7 @@ const ShippingAddress = () => {
               type="text"
               label="Address"
               name="address"
+              required={true}
               placeholder="Your address"
               className="w-full rounded-md mt-2"
             />
@@ -50,9 +59,10 @@ const ShippingAddress = () => {
           <div>
             <KidsInput
               type="text"
-              label="Number"
-              name="number"
+              label="Contact Number"
+              name="contactNumber"
               placeholder="Your number"
+              required={true}
               className="w-full rounded-md mt-2"
             />
           </div>
@@ -61,6 +71,7 @@ const ShippingAddress = () => {
               type="text"
               label="state"
               name="state"
+              required={true}
               placeholder="Your state"
               className="w-full rounded-md mt-2"
             />
@@ -71,11 +82,14 @@ const ShippingAddress = () => {
               label="Zip Code"
               name="zipCode"
               placeholder="Your zip code"
+              required={true}
               className="w-full rounded-md mt-2"
             />
           </div>
         </div>
-        <button type="submit" className="btn btn-ghost mt-4">Save</button>
+        <button type="submit" className="btn btn-ghost mt-4">
+          Save
+        </button>
       </KidsForm>
       <div className="mt-8 mb-6">
         <h2>Payment Method</h2>
