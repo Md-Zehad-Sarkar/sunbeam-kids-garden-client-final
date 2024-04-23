@@ -59,7 +59,7 @@ const AddProducts = () => {
         router.push("/dashboard/products");
       }
     } catch (error) {
-      console.log("error", error);
+      console.error(error);
     }
   };
   return (

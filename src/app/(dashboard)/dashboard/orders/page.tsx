@@ -11,7 +11,6 @@ const AdminManageOrdersPage = () => {
 
   const handleUpdateStatus = async (id: string) => {
     const res = await orderStatusUpdate(id);
-    console.log(res);
   };
 
   return (

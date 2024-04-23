@@ -31,7 +31,6 @@ const UpdateProduct = ({ products }: { products: TProduct }) => {
       toast.success("Product Update Successful");
       router.push("/dashboard/products");
     }
-    console.log(res);
   };
 
   return (

@@ -10,8 +10,6 @@ const FlashSalePage = () => {
     return "Loading...";
   }
 
-  console.log(products);
-
   const flashSales = products?.data?.filter(
     (product: TProduct) => product.flashSale === true
   );
