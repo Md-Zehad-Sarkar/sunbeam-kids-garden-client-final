@@ -33,6 +33,7 @@ const CheckoutPage = () => {
   );
 
   const shippingCharge = 15;
+  
   const payTax = 0.05;
   if (isLoading) {
     return "Loading...";
