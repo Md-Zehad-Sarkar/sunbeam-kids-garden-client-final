@@ -4,12 +4,6 @@ import { useGetAllProductsQuery } from "@/redux/api/products/productsApi";
 import { TProduct } from "@/types/products.type";
 
 const FlashSalePage = () => {
-  // const res = await fetch("http://localhost:5000/api/v1/products", {
-  //   next: { revalidate: 30 },
-  // });
-
-  // const { data: products } = await res.json();
-
   const { data: products, isLoading } = useGetAllProductsQuery({});
 
   if (isLoading) {

@@ -37,14 +37,11 @@ axiosInstance.interceptors.response.use(
   },
 
   async function (error) {
-    console.log("error", error);
     const config = error.config;
-    // console.log("config", config);
 
     if (error?.response?.status === 500 && !config.sent) {
       config.sent = true;
       const response = await getNewToken();
-      console.log("res token", response);
 
       const token = response?.data?.token;
 

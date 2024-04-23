@@ -1,11 +1,12 @@
-import Image from "next/image";
-
 import CarouselSlider from "./CarouselSlider";
 
 const HeroSection = async () => {
-  const res = await fetch("http://localhost:5000/api/v1/products", {
-    next: { revalidate: 2592000 },
-  });
+  const res = await fetch(
+    "https://sunbeam-kids-garden-server-with-authentication.vercel.app/api/v1/products",
+    {
+      next: { revalidate: 2592000 },
+    }
+  );
 
   const { data } = await res.json();
 

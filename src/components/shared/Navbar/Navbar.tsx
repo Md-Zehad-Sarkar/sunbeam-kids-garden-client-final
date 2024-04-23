@@ -2,7 +2,6 @@
 import Link from "next/link";
 import logo from "../../../../public/logo.jpeg";
 import Image from "next/image";
-import profile from "@/assets/images/coti.jpeg";
 import { authInfo, removeUser } from "@/services/authService";
 import { useRouter } from "next/navigation";
 import ShoppingCartIcon from "@/assets/images/cart.png";
@@ -55,11 +54,21 @@ const Navbar = () => {
 
       {user?.email ? (
         <>
-          <li>
-            <Link href="/dashboard/products" className="">
-              Dashboard
-            </Link>
-          </li>
+          <>
+            {user?.role === "admin" ? (
+              <li>
+                <Link href="/dashboard/products" className="">
+                  Dashboard
+                </Link>
+              </li>
+            ) : (
+              <li>
+                <Link href="/dashboard/my-orders" className="">
+                  Dashboard
+                </Link>
+              </li>
+            )}
+          </>
           <li>
             <button onClick={handleLogout}>Logout</button>
           </li>
@@ -128,7 +137,7 @@ const Navbar = () => {
         <div className="avatar">
           <div className="w-16 rounded-full">
             <Image
-              src={profile}
+              src={user?.image}
               alt="profile image"
               width={200}
               height={200}

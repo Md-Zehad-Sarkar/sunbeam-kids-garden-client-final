@@ -1,5 +1,5 @@
 "use client";
-// import ProductTableRow from "@/components/UI/Dashboard/allProducts/ProductTableRow";
+
 import { useGetAllProductsQuery } from "@/redux/api/products/productsApi";
 import { TProduct } from "@/types/products.type";
 import dynamic from "next/dynamic";
@@ -11,9 +11,6 @@ const ProductTableRow = dynamic(
 );
 
 const AdminProductsPage = () => {
-  {
-    /* <h2>All admin products load here</h2> */
-  }
   const { data: products, isLoading } = useGetAllProductsQuery({});
 
   if (isLoading) {

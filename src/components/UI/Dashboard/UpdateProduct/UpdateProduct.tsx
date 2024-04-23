@@ -73,11 +73,7 @@ const UpdateProduct = ({ products }: { products: TProduct }) => {
           className="border mx-auto w-full max-w-[300px] mt-2 p-2 rounded-md"
         />{" "}
         <br />
-        <KidsSelect
-          name="flashSale"
-          label="Flash Sell"
-          // className="w-full max-w-[300px] mt-1 mb-3 rounded-md"
-        />
+        <KidsSelect name="flashSale" label="Flash Sell" />
         <br />
         <KidsInput
           label="Ratings"
@@ -87,7 +83,6 @@ const UpdateProduct = ({ products }: { products: TProduct }) => {
           className="w-full max-w-[300px] mt-1 mb-3 rounded-md"
         />{" "}
         <br />
-        {/* <KidsFileInput label="Image" name="image" /> <br /> */}
         <KidsInput
           label="Price"
           type="number"

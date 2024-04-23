@@ -30,7 +30,7 @@ export const axiosBaseQuery =
         },
       });
 
-      return { data: result?.data };
+      return { data: result?.data || [] };
     } catch (axiosError) {
       const err = axiosError as AxiosError;
       return {

@@ -1,11 +1,10 @@
 "use client";
-// import Sidebar from "@/components/shared/Sidebar/Sidebar";
+
 import { authInfo, isLoggedIn } from "@/services/authService";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import React, { ReactNode } from "react";
 import dynamic from "next/dynamic";
-import Link from "next/link";
 
 const Sidebar = dynamic(() => import("@/components/shared/Sidebar/Sidebar"), {
   ssr: false,
@@ -23,22 +22,23 @@ const DashBoardLayout = ({ children }: { children: ReactNode }) => {
     return null;
   }
 
-  // if (user.userToken) {
-  //   router.push("/login");
-  // }
+  if (user.userToken) {
+    router.push("/login");
+  }
 
   return (
     <div className="max-w-7xl mx-auto">
       <div className="bg-base-200 w-full max-w-screen shadow-lg mx-auto sticky top-0 z-[9] text-end">
         <div className="avatar">
-          {/* <p className="flex justify-end items-center mr-2">{user?.name}</p> */}
+          <p className="flex justify-end items-center mr-2">{user?.name}</p>
+          <p>{user.role === "admin" ? "Admin" : ""}</p>
           <div className="w-24 rounded-full">
             <Image
-              // src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
               src={user?.image}
               alt="profile image"
-              width={200}
-              height={200}
+              width={60}
+              height={60}
+              className="w-12 h-12 rounded-full"
             />
           </div>
         </div>

@@ -8,7 +8,7 @@ type TProductId = {
 
 const AdminUpdateProductPage = async ({ params }: TProductId) => {
   const data = await fetch(
-    `http://localhost:5000/api/v1/single-products/${params.productId}`,
+    `https://sunbeam-kids-garden-server-with-authentication.vercel.app/api/v1/single-products/${params.productId}`,
     {
       method: "GET",
       headers: {

@@ -1,5 +1,3 @@
-import React from "react";
-// import FlashSaleCard from "../Home/FlashSaleCard";
 import { TProduct } from "@/types/products.type";
 
 import dynamic from "next/dynamic";

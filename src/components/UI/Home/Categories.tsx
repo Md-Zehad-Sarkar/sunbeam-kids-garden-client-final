@@ -4,12 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Categories = () => {
-  // const res = await fetch("http://localhost:5000/api/v1/categories", {
-  //   next: { revalidate: 30 },
-  // });
-
-  // const { data: categories } = await res.json();
-
   const { data: categories, isLoading } = useGetAllCategoriesQuery({});
 
   if (isLoading) {

@@ -139,7 +139,7 @@ const CheckoutPage = () => {
             </div>
             <div className="flex justify-between items-center">
               <p>Before Tax</p>
-              <p>{beforeTaxTotalPrice}</p>
+              <p>{beforeTaxTotalPrice?.toFixed(2)}</p>
             </div>
             <div className="flex justify-between items-center">
               <p>Tax</p>

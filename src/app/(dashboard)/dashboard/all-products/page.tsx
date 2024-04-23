@@ -4,10 +4,6 @@ import { useGetAllProductsQuery } from "@/redux/api/products/productsApi";
 import { TProduct } from "@/types/products.type";
 
 const DashboardAllProductsPage = () => {
-  // const res = await fetch("http://localhost:5000/api/v1/products");
-
-  // const { data: products } = await res.json();
-
   const { data: products, isLoading } = useGetAllProductsQuery({});
 
   if (isLoading) {

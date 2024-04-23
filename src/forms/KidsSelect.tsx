@@ -1,7 +1,5 @@
 import { Controller, useFormContext } from "react-hook-form";
 
-const items = ["true", "false"];
-
 type TSelectProps = {
   name: string;
   label?: string;
@@ -9,13 +7,7 @@ type TSelectProps = {
   placeholder?: string;
   items?: string[];
 };
-const KidsSelect = ({
-  name,
-  label,
-  required,
-  placeholder,
-  items,
-}: TSelectProps) => {
+const KidsSelect = ({ name, label, required }: TSelectProps) => {
   const { control } = useFormContext();
   return (
     <div>

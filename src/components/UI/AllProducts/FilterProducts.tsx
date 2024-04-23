@@ -1,10 +1,8 @@
 "use client";
 
 import { useState } from "react";
-// import ProductsCard from "@/components/UI/AllProducts/ProductsCard";
 import { TProduct } from "@/types/products.type";
 import dynamic from "next/dynamic";
-import { useGetAllProductsQuery } from "@/redux/api/products/productsApi";
 const ProductsCard = dynamic(
   () => import("@/components/UI/AllProducts/ProductsCard"),
   {

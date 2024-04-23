@@ -1,5 +1,4 @@
 import Footer from "@/components/shared/Footer/Footer";
-// import Navbar from "@/components/shared/Navbar/Navbar";
 import { Metadata } from "next";
 import { ReactNode } from "react";
 import dynamic from "next/dynamic";

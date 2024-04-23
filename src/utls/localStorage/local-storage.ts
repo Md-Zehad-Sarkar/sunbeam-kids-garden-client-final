@@ -23,7 +23,7 @@ export const removeFromLocalStorage = () => {
 
 export const getNewToken = async () => {
   return await axiosInstance({
-    url: "http://localhost:5000/api/v1/login",
+    url: "https://sunbeam-kids-garden-server-with-authentication.vercel.app/api/v1/login",
     method: "POST",
     headers: {
       "Content-Type": "application/json",
