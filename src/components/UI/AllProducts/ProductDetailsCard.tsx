@@ -20,6 +20,12 @@ const ProductDetailsCard = ({ product }: { product: TProduct }) => {
 
   //add product to cart handler
   const handleAddToCart = async (product: TProduct) => {
+
+    if (!email) {
+      router.push("/login");
+      return;
+    }
+    
     const id = product._id;
     delete product._id;
 
@@ -35,6 +41,8 @@ const ProductDetailsCard = ({ product }: { product: TProduct }) => {
       dispatch(addProductToCart(productObj));
       router.push("/checkout");
     }
+    toast.success("Product Added to Cart successful");
+    router.push("/checkout");
     router.refresh();
   };
 

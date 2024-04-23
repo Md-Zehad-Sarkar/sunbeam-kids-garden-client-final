@@ -28,17 +28,21 @@ const DashBoardLayout = ({ children }: { children: ReactNode }) => {
 
   return (
     <div className="max-w-7xl mx-auto">
-      <div className="bg-base-200 w-full max-w-screen shadow-lg mx-auto sticky top-0 z-[9] text-end">
+      <div className="bg-base-200 w-full max-w-screen shadow-lg mx-auto sticky top-0 z-[9] text-end h-20">
         <div className="avatar">
-          <p className="flex justify-end items-center mr-2">{user?.name}</p>
-          <p>{user.role === "admin" ? "Admin" : ""}</p>
-          <div className="w-24 rounded-full">
+          <div className="flex justify-end items-center mr-2">
+            <p>
+              {user?.name} <br />
+              <span>{user.role === "admin" ? "Admin" : ""}</span>
+            </p>
+          </div>
+          <div className="w-20 h-20 rounded-full">
             <Image
               src={user?.image}
               alt="profile image"
-              width={60}
-              height={60}
-              className="w-12 h-12 rounded-full"
+              width={40}
+              height={40}
+              className="w-8 h-8 rounded-full"
             />
           </div>
         </div>

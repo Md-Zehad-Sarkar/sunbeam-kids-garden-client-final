@@ -135,7 +135,7 @@ const CheckoutPage = () => {
             </div>
             <div className="flex justify-between items-center">
               <p>Shipping Charge</p>
-              <p>{shippingCharge}</p>
+              <p>{userProducts!.length ? shippingCharge : 0}</p>
             </div>
             <div className="flex justify-between items-center">
               <p>Before Tax</p>

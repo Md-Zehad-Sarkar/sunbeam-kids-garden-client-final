@@ -8,11 +8,13 @@ type TProductIdParams = {
 };
 
 //generate static data (ssg)
-export const generatedStaticParams = async () => {
-  const res = await fetch("http://localhost:5000/api/v1/products");
+const generatedStaticParams = async () => {
+  const res = await fetch(
+    "https://sunbeam-kids-garden-server-with-authentication.vercel.app/api/v1/products"
+  );
 
   const { data: products } = await res.json();
-  console.log(products);
+
   return products?.slice(0, 10)?.map((product: TProduct) => ({
     productId: product._id,
   }));
@@ -20,7 +22,7 @@ export const generatedStaticParams = async () => {
 
 const ProductDetailsPage = async ({ params }: TProductIdParams) => {
   const res = await fetch(
-    `http://localhost:5000/api/v1/single-products/${params.productId}`,
+    `https://sunbeam-kids-garden-server-with-authentication.vercel.app/api/v1/single-products/${params.productId}`,
     {
       cache: "no-store",
     }
