@@ -65,12 +65,16 @@ const AddProducts = () => {
   return (
     <div>
       <h1>Add New Products </h1>
-      <KidsForm onSubmit={onSubmit}>
+      <KidsForm
+        onSubmit={onSubmit}
+        className="w-full max-w-[500px] mx-auto mt-12"
+      >
         <KidsInput
           label="Title"
           type="text"
           name="title"
           placeholder="write a product name/title"
+          className="w-full max-w-[300px] mt-1 mb-3 rounded-md"
         />
         <br />
         <KidsInput
@@ -78,6 +82,7 @@ const AddProducts = () => {
           type="text"
           name="brand"
           placeholder="type products brand"
+          className="w-full max-w-[300px] mt-1 mb-3 rounded-md"
         />
         <br />
         <KidsInput
@@ -85,6 +90,7 @@ const AddProducts = () => {
           type="text"
           name="category"
           placeholder="type products category"
+          className="w-full max-w-[300px] mt-1 mb-3 rounded-md"
         />
         <br />
         <KidsInput
@@ -92,6 +98,7 @@ const AddProducts = () => {
           type="text"
           name="description"
           placeholder="write products description"
+          className="w-full max-w-[300px] mt-1 mb-3 rounded-md"
         />{" "}
         <br />
         <KidsSelect name="flashSale" label="Flash Sell" />
@@ -101,14 +108,16 @@ const AddProducts = () => {
           type="number"
           name="ratings"
           placeholder="give a rating 1 to 5"
+          className="w-full max-w-[300px] mt-1 mb-3 rounded-md"
         />{" "}
         <br />
-        <KidsFileInput label="Image" name="image" /> <br />
+        <KidsFileInput label="Image" name="image" className="mb-3" /> <br />
         <KidsInput
           label="Price"
           type="number"
           name="price"
           placeholder="give products price"
+          className="w-full max-w-[300px] mt-1 mb-3 rounded-md"
         />
         <br />
         <button className="btn btn-ghost" type="submit">

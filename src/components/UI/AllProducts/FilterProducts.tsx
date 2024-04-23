@@ -4,6 +4,7 @@ import { useState } from "react";
 // import ProductsCard from "@/components/UI/AllProducts/ProductsCard";
 import { TProduct } from "@/types/products.type";
 import dynamic from "next/dynamic";
+import { useGetAllProductsQuery } from "@/redux/api/products/productsApi";
 const ProductsCard = dynamic(
   () => import("@/components/UI/AllProducts/ProductsCard"),
   {
@@ -21,44 +22,48 @@ const FilterProducts = ({ products }: { products: TProduct[] }) => {
 
     switch (category) {
       case "kids-wear":
-        filtered = products.filter(
-          (product) => product.category === "kids-wear"
+        filtered = products?.filter(
+          (product: TProduct) => product.category === "kids-wear"
         );
         break;
       case "children-clothing":
-        filtered = products.filter(
-          (product) => product.category === "children-clothing"
+        filtered = products?.filter(
+          (product: TProduct) => product.category === "children-clothing"
         );
         break;
       case "babies-clothes":
-        filtered = products.filter(
-          (product) => product.category === "babies-clothes"
+        filtered = products?.filter(
+          (product: TProduct) => product.category === "babies-clothes"
         );
         break;
       case "tops-wear":
-        filtered = products.filter(
-          (product) => product.category === "tops-wear"
+        filtered = products?.filter(
+          (product: TProduct) => product.category === "tops-wear"
         );
         break;
       case "bottoms-wear":
-        filtered = products.filter(
-          (product) => product.category === "bottoms-wear"
+        filtered = products?.filter(
+          (product: TProduct) => product.category === "bottoms-wear"
         );
         break;
       case "sleepwear":
-        filtered = products.filter(
-          (product) => product.category === "sleepwear"
+        filtered = products?.filter(
+          (product: TProduct) => product.category === "sleepwear"
         );
         break;
       case "dresses":
-        filtered = products.filter((product) => product.category === "dresses");
+        filtered = products?.filter(
+          (product: TProduct) => product.category === "dresses"
+        );
         break;
       case "socks":
-        filtered = products.filter((product) => product.category === "socks");
+        filtered = products?.filter(
+          (product: TProduct) => product.category === "socks"
+        );
         break;
       case "outerwear":
-        filtered = products.filter(
-          (product) => product.category === "outerwear"
+        filtered = products?.filter(
+          (product: TProduct) => product.category === "outerwear"
         );
         break;
       default:
@@ -94,7 +99,7 @@ const FilterProducts = ({ products }: { products: TProduct[] }) => {
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-        {filteredProducts.map((product: TProduct) => (
+        {filteredProducts?.map((product: TProduct) => (
           <ProductsCard key={product._id} product={product} />
         ))}
       </div>

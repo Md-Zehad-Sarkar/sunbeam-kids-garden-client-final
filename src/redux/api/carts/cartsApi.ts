@@ -9,6 +9,7 @@ const cartsApi = baseApi.injectEndpoints({
         method: "POST",
         headers: { "Content-Type": "application/json" },
         data,
+       
       }),
       invalidatesTags: ["carts"],
     }),

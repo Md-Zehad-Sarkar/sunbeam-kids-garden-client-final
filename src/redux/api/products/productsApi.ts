@@ -16,12 +16,10 @@ const productsApi = baseApi.injectEndpoints({
     //get single products
     getSingleProducts: builder.query({
       query: (id) => ({
-        url: `/products/${id}`,
+        url: `/single-products/${id}`,
         method: "GET",
       }),
-      // transformResponse: (response: any) => {
-      //   return { data: response };
-      // },
+
       providesTags: ["products"],
     }),
 
@@ -52,7 +50,7 @@ const productsApi = baseApi.injectEndpoints({
     //update products
     updateProducts: builder.mutation({
       query: ({ id, data }) => ({
-        url: `/products/${id}`,
+        url: `/update-products/${id}`,
         method: "PATCH",
         data,
       }),

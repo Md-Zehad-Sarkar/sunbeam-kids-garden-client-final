@@ -21,7 +21,7 @@ const KidsTextArea = ({
       render={({ field }) => {
         return (
           <>
-            {label && label}
+            {label && label} <br />
             <textarea
               {...field}
               cols={20}

@@ -5,17 +5,11 @@ import {
 } from "@/redux/api/products/productsApi";
 import { TProduct } from "@/types/products.type";
 import Image from "next/image";
+import Link from "next/link";
 import { toast } from "sonner";
 
 const ProductTableRow = ({ product, i }: { product: TProduct; i: string }) => {
   const [deleteProducts] = useDeleteProductsMutation();
-  const [updateProducts] = useUpdateProductsMutation();
-
-  //edit product
-  const handleEdit = async (product: TProduct) => {
-    // console.log(product._id);
-    const res = await updateProducts({ id: product?._id, data: product });
-  };
 
   //delete product
   const handleDelete = async (id: string) => {
@@ -42,10 +36,12 @@ const ProductTableRow = ({ product, i }: { product: TProduct; i: string }) => {
       <td>{product?._id}</td>
       <td>{product?.price}</td>
       <td>
-        <button onClick={() => handleEdit(product)}>Edit</button>
+        <Link href={`/dashboard/products/${product?._id}`}>
+          <button className="btn btn-outline btn-primary">Edit</button>
+        </Link>
         <button
           onClick={() => handleDelete(product?._id as string)}
-          className="ml-3"
+          className="ml-4 btn btn-outline btn-error hover:text-white"
         >
           Delete
         </button>

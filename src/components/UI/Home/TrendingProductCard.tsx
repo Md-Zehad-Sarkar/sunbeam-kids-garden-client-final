@@ -1,24 +1,39 @@
 "use client";
 import Ratings from "@/components/shared/Ratings/Ratings";
-
+import { useAddToCartToDBMutation } from "@/redux/api/carts/cartsApi";
+import { addProductToCart } from "@/redux/features/productSlice";
+import { useAppDispatch } from "@/redux/hooks";
+import { authInfo } from "@/services/authService";
 import { TProduct } from "@/types/products.type";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
 
 const TrendingProductCard = ({ product }: { product: TProduct }) => {
-  const handleAddToCart = (product: TProduct) => {
-    let products = JSON.parse(localStorage.getItem("products") as string) || [];
+  const dispatch = useAppDispatch();
+  const [addToCartToDB] = useAddToCartToDBMutation();
+  const router = useRouter();
+  const user = authInfo();
+  const { email } = user;
 
-    let productExists = products.find(
-      (item: TProduct) => item._id === product._id
-    );
+  //add product to cart handler
+  const handleAddToCart = async (product: TProduct) => {
+    const id = product._id;
+    delete product._id;
 
-    if (!productExists) {
-      products.push(product);
-      localStorage.setItem("products", JSON.stringify(products));
-    } else {
-      productExists += 1;
-      console.log("Product already exists in cart");
+    const productObj = {
+      id: id,
+      email: email,
+      ...product,
+    };
+    const res = await addToCartToDB(productObj).unwrap();
+
+    if (res?.insertedId) {
+      toast.success("Product Added to Cart successful");
+      dispatch(addProductToCart(productObj));
+      router.push("/checkout");
     }
+    router.refresh();
   };
   return (
     <div

@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { DetailedHTMLProps, FormHTMLAttributes, ReactNode } from "react";
 import {
   useForm,
   FormProvider,
@@ -10,11 +10,17 @@ type TFormProps = {
   children: ReactNode;
   onSubmit: SubmitHandler<FieldValues>;
   className?: string;
+  defaultValues?: FieldValues;
 };
 
 // sunbeam kids garden reusable form
-const KidsForm = ({ children, onSubmit: submit, className }: TFormProps) => {
-  const methods = useForm();
+const KidsForm = ({
+  children,
+  onSubmit: submit,
+  className,
+  defaultValues,
+}: TFormProps) => {
+  const methods = useForm({ defaultValues: defaultValues });
   const { handleSubmit, reset } = methods;
 
   // Handle form submission

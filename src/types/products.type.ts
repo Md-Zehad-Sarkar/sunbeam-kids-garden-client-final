@@ -13,6 +13,7 @@ export type TProduct = {
   productId?: string;
   email?: string;
   quantity: number;
+  data?: any;
 };
 
 export type TReview = {

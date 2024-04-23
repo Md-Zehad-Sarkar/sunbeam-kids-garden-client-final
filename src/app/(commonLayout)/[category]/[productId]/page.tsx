@@ -1,4 +1,3 @@
-// "use client";
 import ProductDetailsCard from "@/components/UI/AllProducts/ProductDetailsCard";
 import { TProduct } from "@/types/products.type";
 
@@ -21,7 +20,7 @@ const generatedStaticParams = async () => {
 
 const ProductDetailsPage = async ({ params }: TProductIdParams) => {
   const res = await fetch(
-    `http://localhost:5000/api/v1/products/${params.productId}`,
+    `http://localhost:5000/api/v1/single-products/${params.productId}`,
     {
       cache: "no-store",
     }
